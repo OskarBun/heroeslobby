@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="a python tornado appl">
+    <meta name="author" content="Oskar Bunyan">
+	<title>Simple</title>
+	<link rel="stylesheet" type="text/css" href="{{ static_url('lobby/main-' + mode + '.css') }}" />	
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="{{ static_url('images/ico/favicon.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ static_url('images/ico/apple-touch-icon-144-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ static_url('images/ico/apple-touch-icon-114-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ static_url('images/ico/apple-touch-icon-72-precomposed.png') }}" />
+    <link rel="apple-touch-icon-precomposed" href="{{ static_url('images/ico/apple-touch-icon-57-precomposed.png') }}" />
+    <link rel="apple-touch-startup-image" href="{{ static_url('images/ico/startup.png') }}" />
+</head>
+<body>
+	<h1>Welcome</h1>
+	<div data-bind="text:connection.status"></div>
+	
+	<script type="text/javascript" src="{{ static_url('bower_components/requirejs/require.js') }}"></script>
+	<script type="text/javascript" src="{{ static_url('lobby/main-' + mode + '.js') }}"></script>
+</body>
+</html>

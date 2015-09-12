@@ -1,0 +1,5 @@
+certifi>=14.5.14
+tornado>=4.2
+sqlalchemy>=1.0.5
+pymysql>=0.6.6
+git+git://github.com/blueshed/blueshed-py.git#egg=blueshed
