@@ -5,6 +5,7 @@ require.config({
     	"augment":		  		"bower_components/augment.js/augment",
         "jquery" :        		"bower_components/jquery/dist/jquery",
         "knockout":		  		"bower_components/knockout/dist/knockout.debug",  
+        "knockout-mapping":     "bower_components/knockout-mapping/knockout.mapping",
         
         "bootstrap":        	"bower_components/bootstrap/dist/js/bootstrap",
         "bootstrap-notify":  	"bower_components/bootstrap-notify/js/bootstrap-notify",

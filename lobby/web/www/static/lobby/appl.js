@@ -2,13 +2,14 @@
 define(
 	["knockout",
      "./connection",
+     "./model/main",
      "./register-routes",
      "signals",
      "./register-components",
      "bootstrap-notify",
      "augment"], 
      
-	function (ko, Connection, Routes, signals) {
+	function (ko, Connection, Store, Routes, signals) {
     	'use strict';
     	
     	function Appl(){
@@ -19,6 +20,7 @@ define(
 			this.component = ko.observable();
 			this.connection = new Connection();
 			this.routes = new Routes(this);
+			this.store = new Store(this);
 
 			this.title = ko.observable("Allercate");
 			this.logo = ko.observable("static/images/ico/startup.png");

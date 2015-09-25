@@ -83,7 +83,8 @@ class Control(BaseControl):
             lobby.teams.append(model.Team("Blue" if team2 is None else team2))
             session.add(lobby)
             session.commit()
-            return json_lobby(lobby)
+            self._broadcast_on_success("lobby created", json_lobby(lobby))
+            return lobby.id
         
         
     def get_lobbies(self, accl, region=None):
@@ -100,5 +101,14 @@ class Control(BaseControl):
         with self.session as session:
             lobby = session.query(model.Lobby).get(lobby_id)
             return json_lobby(lobby)
+        
+          
+    def save_lobby(self, accl, lobby):
+        with self.session as session:
+            lobby = session.query(model.Lobby).get(lobby.id)
+            lobby._serialize = lobby
+            session.commit()
+            self._broadcast_on_success("lobby updated", json_lobby(lobby))
+            return True
         
         
