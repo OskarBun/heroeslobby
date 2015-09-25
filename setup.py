@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.002'
+version = '0.003'
 
 setup(name='heroes lobby',
       version=version,
