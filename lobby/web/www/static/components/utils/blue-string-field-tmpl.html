@@ -32,7 +32,9 @@
                               textInput: value " />
             <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true" 
                 data-bind="visible:value.isValid?!value.isValid():false,attr:{title:value.error}"></span>
+            <!-- ko if:value.error -->
             <small class="help-block" data-bind="text:value.error"></small>
+            <!-- /ko -->
         </div>
     <!-- /ko -->
 

@@ -3,5 +3,5 @@
 		<lobby-panel params="appl:appl, lobby:$data"></lobby-panel>
 	</div>
 </div>
-
+<button class="btn btn-default" data-bind="click:$component.add_lobby.bind($component)">Add</button>
 <div data-bind="template:{ afterRender: $component.init.bind($component) }"></div>

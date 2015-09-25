@@ -6,6 +6,7 @@ define([
         "components/profile-panel/main",
         "components/page-panel/main",
         "components/lobby-panel/main",
+        "components/lobby-dialog/main",
         "components/utils/main"
         ],
         function(
@@ -15,7 +16,8 @@ define([
                 change_password,
                 profile_panel,
                 page_panel,
-                lobby_panel){
+                lobby_panel,
+                lobby_dialog){
 
 	      ko.components.register("menu-component",menu_component);
         ko.components.register("error-panel",error_panel);
@@ -23,5 +25,6 @@ define([
         ko.components.register("profile-panel",profile_panel);
         ko.components.register("page-panel",page_panel);
         ko.components.register("lobby-panel",lobby_panel);
+        ko.components.register("lobby-dialog",lobby_dialog);
 
 });

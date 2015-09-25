@@ -1,0 +1,46 @@
+<div class="modal-dialog">
+  	<div class="modal-content">
+		<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    	<h4>Create Lobby</h4>
+	  	</div>
+	  	<div class="modal-body">
+			<error-panel params="error:error"></error-panel>
+			<form class="form-horizontal" role="form" data-bind="submit:save">
+				<blue-string-field 
+					params="name:'Name',value:name,placeholder:'Enter the lobby\'s name'"></blue-string-field>
+				<blue-string-field 
+					params="name:'Team 1',value:team1,placeholder:'Team 1\'s name'"></blue-string-field>
+				<blue-string-field 
+					params="name:'Team 2',value:team2,placeholder:'Team 2\'s name'"></blue-string-field>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">region</label>
+					<div class="col-sm-9" data-bind="foreach:regions">
+						<label class="radio-inline">
+							  <input type="radio" 
+							  		data-bind="checkedValue:$data,checked:$parent.region" />
+						  		<span data-bind="text:$data"></span>
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">battleground</label>
+					<div class="col-sm-9">
+						<select class="form-control"
+						 data-bind="options: battlegrounds,
+			                        optionsText: 'name',
+			                        value: battleground,
+			                        optionsCaption: 'Choose...'"></select>
+					</div>
+				</div>
+			</form>
+	  	</div>
+	  	<div class="modal-footer">
+	    	<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+	    	<button class="btn btn-primary" 
+	    	   data-bind="click:save,enable:can_save">
+	    	   Save
+	    	</button>
+	  	</div>
+	</div>
+</div>

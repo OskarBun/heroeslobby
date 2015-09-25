@@ -30,6 +30,10 @@ define([
 
 		};
 
+		Panel.prototype.add_lobby = function() {
+			this.appl.open_dialog("lobby-dialog",{appl:this.appl});
+		};
+
 		return {
 			template: main_tmpl,
 			viewModel: Panel

@@ -60,6 +60,7 @@ define(
 			},this);
 			this.connection.connect(function(){
 				this.routes.init();
+				this.store.init();
 				ko.applyBindings(this);
 				this.loading = ko.observable(false);
 				this.notify("loaded",{type:"success",position:".top-right"});

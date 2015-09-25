@@ -82,19 +82,7 @@ class Control(BaseControl):
             accl_user._password = new_password
             session.commit()
             return True
-        
-        
-    def create_lobby(self, accl, team1=None, team2=None, **kwargs):
-        with self.session as session:
-            lobby = model.Lobby(owner_id=accl)
-            lobby._serialize = kwargs
-            lobby.teams.append(model.Team("Red" if team1 is None else team1))
-            lobby.teams.append(model.Team("Blue" if team2 is None else team2))
-            session.add(lobby)
-            session.commit()
-            self._broadcast_on_success("lobby created", json_lobby(lobby))
-            return lobby.id
-        
+                
         
     def get_lobbies(self, accl, region=None):
         with self.session as session:
@@ -106,12 +94,34 @@ class Control(BaseControl):
             return [json_lobby(lobby) for lobby in query]
         
         
+    def get_battlegrounds(self, accl):
+        with self.session as session:
+            query = session.query(model.Battleground).\
+                            order_by(model.Battleground.name)
+            return [row._serialize for row in query]
+        
+        
     def get_lobby(self, accl, lobby_id):
         with self.session as session:
             lobby = session.query(model.Lobby).get(lobby_id)
             return json_lobby(lobby)
         
-          
+    
+    def create_lobby(self, accl, data):
+        with self.session as session:
+            user = session.query(model.User).get(accl)
+            lobby = model.Lobby(name=data["name"],
+                                region=data["region"],
+                                battleground_id=data["battleground_id"],
+                                owner=user)
+            session.add(lobby)
+            lobby.teams.append(model.Team(name=data["team1"]))
+            lobby.teams.append(model.Team(name=data["team2"]))
+            session.commit()
+            self._broadcast_on_success("lobby created", json_lobby(lobby))
+            return lobby.id
+            
+    
     def save_lobby(self, accl, lobby):
         with self.session as session:
             lobby = session.query(model.Lobby).get(lobby.id)
