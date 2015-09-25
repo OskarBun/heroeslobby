@@ -37,7 +37,7 @@ def main():
     port = int(os.environ.get("PORT", options.port))
     db_url = os.environ.get("CLEARDB_DATABASE_URL",options.db_url)
                     
-    control = Control(db_url=db_url,drop_all=True)
+    control = Control(db_url=db_url,drop_all=False)
     
     handlers = [
         (r"/websocket", WebsockeAuthtHandler),
