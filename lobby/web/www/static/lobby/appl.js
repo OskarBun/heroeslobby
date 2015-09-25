@@ -7,6 +7,7 @@ define(
      "signals",
      "./register-components",
      "bootstrap-notify",
+     "ko-x-editable",
      "augment"], 
      
 	function (ko, Connection, Store, Routes, signals) {

@@ -1,6 +1,7 @@
 @import url("../bower_components/font-awesome/css/font-awesome.min.css");
 @import url("../bower_components/bootstrap/dist/css/bootstrap.css");
 @import url("../bower_components/bootstrap-notify/css/bootstrap-notify.css");
+@import url("../bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css");
 @import url("../components/lobby-panel/main.css");
 
 .login-menu{

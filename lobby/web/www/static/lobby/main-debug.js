@@ -15,7 +15,10 @@ require.config({
 
         "signals":              "bower_components/js-signals/dist/signals",
         "hasher":               "bower_components/hasher/dist/js/hasher",
-        "crossroads":           "bower_components/crossroads/dist/crossroads"
+        "crossroads":           "bower_components/crossroads/dist/crossroads",
+
+        "x-editable":           "bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable",
+        "ko-x-editable":        "bower_components/knockout.x-editable/knockout.x-editable"
     },
     shim: {
         "bootstrap": {
@@ -23,6 +26,12 @@ require.config({
         },
         "bootstrap-notify": {
             deps: ["bootstrap"]
+        },
+        "x-editable": {
+            deps: ["jquery","bootstrap"]
+        },
+        "ko-x-editable": {
+            deps: ["knockout","x-editable"]
         }
     },
     packages:[]
