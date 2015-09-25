@@ -6,10 +6,23 @@ define([
 
 		function Panel(params){
 			this.appl = params.appl;
-      this.map = params.lobby.battleground;
-      this.red_users = params.lobby.teams()[0].members;
-      this.blue_users = params.lobby.teams()[1].members;
-      this.region_icon = "/static/images/"+params.lobby.region()+".svg";
+			this.lobby = params.lobby;
+			this.region_icon = "/static/images/"+params.lobby.region()+".svg";
+
+			this.can_join = ko.pureComputed(function(){
+				var user = null;
+				if(this.appl.user()){
+					var user_id = ko.unwrap(this.appl.user().id);
+					this.lobby.teams().map(function(team){
+						if(user==null){
+							user = team.members().find(function(item){
+								return ko.unwrap(item.id)==user_id;
+							});
+						}
+					},this);
+				}
+				return user==null;
+			},this);
 		}
 
 		Panel.prototype.init = function() {
@@ -18,6 +31,20 @@ define([
 
 		Panel.prototype.dispose = function() {
 
+		};
+
+		Panel.prototype.team_member = function(team, index) {
+			if(index < team.members().length){
+				return team.members()[index];
+			}
+		};
+
+		Panel.prototype.join = function(team) {
+			
+		};
+
+		Panel.prototype.open = function() {
+			
 		};
 
 		return {

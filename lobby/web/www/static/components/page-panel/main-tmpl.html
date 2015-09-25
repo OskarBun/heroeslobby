@@ -1,5 +1,5 @@
-<div class="page-panel">
-	<div data-bind="foreach: lobbies">
+<div class="row page-panel" data-bind="foreach: lobbies">
+	<div class="col-md-3">
 		<lobby-panel params="appl:appl, lobby:$data"></lobby-panel>
 	</div>
 </div>

@@ -1,20 +1,26 @@
-<div class="lobby-panel">
-  <h2 data-bind="text: map"></h2>
-  <div class="info">
-    <ul data-bind="foreach: red_users" class="list-inline">
-      <li>
-        <i class="fa fa-user"></i>
-      </li>
-    </ul>
-    <h3 data-bind="text: red_users().length"></h3>
-    <i class="fa fa-times"></i>
-    <h3 data-bind="text: blue_users().length"></h3>
-    <ul data-bind="foreach: blue_users" class="list-inline">
-      <li>
-        <i class="fa fa-user"></i>
-      </li>
-    </ul>
-    <!-- <img src="/static/images/mumble.svg" width="20" height="20"/> -->
-    <img data-bind="attr: {src: region_icon}"  width="20" height="20" />
+<div class="panel panel-default" data-bind="with:lobby">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <img class="pull-right" style="width:20px;height:20px" 
+      data-bind="attr: {src: $component.region_icon}" />
+      <span data-bind="editable:battleground"></span>
+    </h3>
+  </div>
+  <table class="table table-bordered table-condensed">
+    <tbody data-bind="foreach:teams">
+      <tr data-bind="foreach:[0,1,2,3,4]">
+        <td style="text-align: center">
+          <i class="fa fw fa-user" 
+          data-bind="css:{'text-muted':!$component.team_member($parent,$data)}"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="panel-footer">
+    <button class="btn btn-primary" 
+    data-bind="disable:!$component.can_join(),
+    click:$component.join.bind($component)">Join</button>
+    <button class="btn btn-primary" 
+    data-bind="click:$component.open.bind($component)">Details</button>
   </div>
 </div>

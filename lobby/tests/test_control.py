@@ -24,6 +24,7 @@ class Test(unittest.TestCase):
 
     def testName(self):
         with self.control.session as session:
+            admin = session.query(model.User).get(1)
             foo = model.User(name="foo",_password="foo")
             bar = model.User(name="bar",_password="bar")
             session.add_all([foo,bar])
@@ -45,6 +46,20 @@ class Test(unittest.TestCase):
             
             red.members.append(foo)
             blue.members.append(bar)
+            
+            lobby = model.Lobby(name="Foo's other Lobby",
+                                region=model.Lobby.REGION[1],
+                                battleground=btgs[1])
+            foo.lobbies.append(lobby)
+            
+            red = model.Team(name="Red")
+            lobby.teams.append(red)
+            blue = model.Team(name="Blue")
+            lobby.teams.append(blue)
+            
+            red.members.append(foo)
+            blue.members.append(bar)
+            blue.members.append(admin)
             
             session.commit()
             

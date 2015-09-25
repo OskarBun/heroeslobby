@@ -15,7 +15,8 @@ setup(name='heroes lobby',
         'tornado>=4.2',
         'sqlalchemy>=1.0.5',
         'pymysql>=0.6.6',
-        "blueshed-py==0.2"
+        "blueshed-py==0.2",
+        'pika>=0.10.0'
       ],
       dependency_links=[
         "git+ssh://git@github.com/blueshed/blueshed-py.git#egg=blueshed",

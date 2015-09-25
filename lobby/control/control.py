@@ -9,12 +9,14 @@ from lobby import model
 import functools
 from blueshed.utils.status import Status
 from lobby.views.lobby_view import json_lobby
+from blueshed.utils.utils import dumps
 
 
 class Control(BaseControl):
     
-    def __init__(self, db_url, echo=False, pool_recycle=None, drop_all=False):
+    def __init__(self, db_url, queue=None, echo=False, pool_recycle=None, drop_all=False):
         BaseControl.__init__(self, db_url, echo=echo, pool_recycle=pool_recycle)
+        self._queue = queue
         self._status = Status(functools.partial(self._broadcast,'_service_status_'))
         self._fc_description = None
         self._fc_methods = None
@@ -29,6 +31,13 @@ class Control(BaseControl):
             with self.session as session:
                 session.add(model.User(name="admin",_password="admin"))
                 session.commit()
+                
+                
+    def _broadcast(self, signal, message, accl=None):
+        if self._queue:
+            self._queue.post(dumps({"signal":signal, "message":message}))
+        else:
+            BaseControl._broadcast(self, signal, message, accl)
                 
                 
     def _begin_web_session(self, accl, client, ip_address, headers):
