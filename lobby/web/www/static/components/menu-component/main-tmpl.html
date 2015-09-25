@@ -1,0 +1,128 @@
+<nav class="navbar navbar-default navbar-fixed-top" 
+	 role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" 
+				class="navbar-toggle collapsed"
+				data-toggle="collapse" 
+				data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#" style="padding: 9px 15px;"> 
+				<img data-bind="attr:{src:logo}" style="height:30px;"/>
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+
+			<ul class="nav navbar-nav">
+				<li data-bind="css:{active:active_component()=='page-panel'}">
+					<a href="#/page">Home</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<!-- ko ifnot:user -->
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <span
+						data-bind="css:{'text-danger':status()!='Connected'}">
+							Login
+						</span> <b class="caret"></b>
+					</a>
+					<div class="login-menu dropdown-menu">
+						<form data-bind="submit:$component.login.bind($component)">
+	                    <div class="col-sm-12">
+	                        <div class="col-sm-12">
+	                            Enter your email and password and click 'Sign In'
+	                        </div>
+	                        <div class="col-sm-12">
+	                            <input type="text" placeholder="Email" onclick="return false;" 
+	                            	class="form-control input-sm" id="login-email"
+	                            	data-bind="textInput:login_email" />
+	                        </div>
+	                        <br/>
+	                        <div class="col-sm-12">
+	                            <input type="password" placeholder="Password" 
+	                            	class="form-control input-sm" name="password" id="login-password"
+	                            	data-bind="textInput:login_password" />
+	                        </div>
+	                        <div class="col-sm-12" data-bind="if:login_error">
+	                        	<error-panel params="error:login_error"></error-panel>
+	                        </div>
+	                        <div class="col-sm-12">
+	                            <button type="submit" class="btn btn-success btn-sm">Sign in</button>
+	                        </div>
+	                    </div>
+	                    </form>
+		            </div>
+		        </li>
+		        <!-- /ko -->
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <span
+						data-bind="css:{'text-danger':status()!='Connected'}">
+							<!-- ko if:loading --> <i
+							class="fa fa-refresh fa-spin text-allercate"></i> <!-- /ko --> <i
+							class="glyphicon glyphicon-cog"></i>
+						</span> <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<!-- ko if:is_logged_in -->
+						<li><a href="#" data-bind="click:$component.edit_user.bind($component)">
+								<i class="fa fa-user" style="min-width: 18px;"></i> Edit Your
+								Details
+						</a></li>
+						<li><a href="#"
+							data-bind="click:$component.change_password.bind($component)"> <i
+								class="fa fa-key" style="min-width: 18px;"></i> Change Password
+						</a></li>
+						<li><a href="/logout"> <i class="fa fa-toggle-off"
+								style="min-width: 18px;"></i> Logout
+						</a></li>
+						<li role="presentation" class="divider"></li>
+						<li class="dropdown-header">Signed in as <span
+							data-bind="text:user().email"></span></li>
+						<!-- /ko -->
+						<li data-bind="visible:status()!='Connected'">
+							<a href="#" 
+							   data-bind="click:$component.connect.bind($component)">
+								<i class="fa fa-sign-in" style="min-width: 18px;"></i> Connect
+							</a>
+						</li>
+
+						<li class="dropdown-header"><span
+							data-bind="css:{'text-danger':status()!='Connected',
+			  						  'text-success':status()=='Connected'}">
+								<i class="fa fa-power-off" style="min-width: 18px;"></i>
+						</span> Status: <span data-bind="text:status"></span></li>
+
+					</ul>
+				</li>
+			</ul>
+			<!-- ko if:search_visible -->
+			<form class="navbar-form navbar-right" role="search" 
+				  data-bind="submit:$component.search.bind($component)">
+				<div class="form-group">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search"
+							data-bind="textInput:search_term,hasFocus:search_focus" />
+						<span class="input-group-btn">
+					        <button class="btn btn-default" type="submit">
+					        	<span class="fa fa-fw fa-search"></span>
+					        </button>
+					     </span>
+					</div>
+				</div>
+			</form>
+			<!-- /ko -->
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>

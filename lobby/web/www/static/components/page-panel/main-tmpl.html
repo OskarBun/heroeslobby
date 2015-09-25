@@ -1,0 +1,8 @@
+<!-- page-panel -->
+<div id="page-panel">
+	<!-- Content -->
+	<h1>Welcome</h1>
+	<div data-bind="text:connection.status"></div>
+</div>
+
+<div data-bind="template:{ afterRender: $component.init.bind($component) }"></div>

@@ -15,7 +15,7 @@ from blueshed.utils.utils import patch_tornado
 from blueshed.handlers.login_handler import LoginHandler
 from blueshed.handlers.logout_handler import LogoutHandler
 from blueshed.handlers.index_handler import IndexHandler
-from blueshed.handlers.websocket_handler import WebsocketHandler
+from blueshed.handlers.websocket_auth_handler import WebsockeAuthtHandler
 
 from lobby.control.control import Control
 
@@ -40,7 +40,7 @@ def main():
     control = Control(db_url=db_url,drop_all=True)
     
     handlers = [
-        (r"/websocket", WebsocketHandler),
+        (r"/websocket", WebsockeAuthtHandler),
         (r"/login(.*)", LoginHandler),
         (r"/logout", LogoutHandler),
         (r"/", IndexHandler),

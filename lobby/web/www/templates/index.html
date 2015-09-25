@@ -16,8 +16,17 @@
     <link rel="apple-touch-startup-image" href="{{ static_url('images/ico/startup.png') }}" />
 </head>
 <body>
-	<h1>Welcome</h1>
-	<div data-bind="text:connection.status"></div>
+	<menu-component params="{appl:$root}"></menu-component>
+	<div class="container-fluid" style="margin-top:60px;">
+		<h1>Welcome</h1>
+		<div data-bind="text:connection.status"></div>
+	</div>
+	
+	<div id="modal-dialog" class="modal fade"></div>
+	<div class='notifications top-right'></div>
+	<div class='notifications bottom-right'></div>
+	<div class='notifications top-left'></div>
+	<div class='notifications bottom-left'></div>
 	
 	<script type="text/javascript" src="{{ static_url('bower_components/requirejs/require.js') }}"></script>
 	<script type="text/javascript" src="{{ static_url('lobby/main-' + mode + '.js') }}"></script>

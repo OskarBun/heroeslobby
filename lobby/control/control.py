@@ -41,7 +41,8 @@ class Control(BaseControl):
                 
         
     def _end_web_session(self, client):
-        self._clients.remove(client)
+        if client in self._clients:
+            self._clients.remove(client)
         self._status['clients']=list(set(client.current_user for client in self._clients))
 
                 
