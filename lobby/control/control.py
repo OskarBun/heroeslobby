@@ -8,6 +8,7 @@ from blueshed.model_helpers import model_utils
 from lobby import model
 import functools
 from blueshed.utils.status import Status
+from lobby.views.lobby_view import json_lobby
 
 
 class Control(BaseControl):
@@ -26,7 +27,7 @@ class Control(BaseControl):
         
         if drop_all:
             with self.session as session:
-                session.add(model.User(name="admin"))
+                session.add(model.User(name="admin",_password="admin"))
                 session.commit()
                 
                 
@@ -50,7 +51,8 @@ class Control(BaseControl):
     def login(self,username, password):
         
         with self.session as session:
-            user = session.query(model.User).filter(model.User.name==username).first()
+            user = session.query(model.User).filter(model.User.name==username,
+                                                    model.User._password==password).first()
             if user:
                 return str(user.id)
             raise Exception("Email or password incorrect!")
@@ -61,5 +63,32 @@ class Control(BaseControl):
         with self.session as session:
             user = session.query(model.User).get(user_id)
             return user._serialize
-
+        
+        
+    def create_lobby(self, accl, team1=None, team2=None, **kwargs):
+        with self.session as session:
+            lobby = model.Lobby(owner_id=accl)
+            lobby._serialize = kwargs
+            lobby.teams.append(model.Team("Red" if team1 is None else team1))
+            lobby.teams.append(model.Team("Blue" if team2 is None else team2))
+            session.add(lobby)
+            session.commit()
+            return json_lobby(lobby)
+        
+        
+    def get_lobbies(self, accl, region=None):
+        with self.session as session:
+            query = session.query(model.Lobby)
+            if region:
+                query = query.\
+                        filter(model.Lobby.region==region)
+            
+            return [json_lobby(lobby) for lobby in query]
+        
+        
+    def get_lobby(self, accl, lobby_id):
+        with self.session as session:
+            lobby = session.query(model.Lobby).get(lobby_id)
+            return json_lobby(lobby)
+        
         

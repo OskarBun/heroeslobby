@@ -33,6 +33,22 @@
         "doc": "",
         "is_scalar": false,
         "is_m2m": false
+      },
+      {
+        "name": "_password",
+        "type": "String",
+        "size": "80",
+        "precision": 36,
+        "scale": 12,
+        "values": null,
+        "nullable": true,
+        "unique": false,
+        "backref": null,
+        "m2m": false,
+        "cascade": false,
+        "doc": "",
+        "is_scalar": false,
+        "is_m2m": false
       }
     ]
   },
@@ -169,6 +185,128 @@
       },
       {
         "name": "hots_logs_ref",
+        "type": "String",
+        "size": 255,
+        "precision": 36,
+        "scale": 12,
+        "values": null,
+        "nullable": true,
+        "unique": false,
+        "backref": null,
+        "m2m": false,
+        "cascade": false,
+        "doc": "",
+        "is_scalar": false,
+        "is_m2m": false
+      },
+      {
+        "name": "region",
+        "type": "Enum",
+        "size": 255,
+        "precision": 36,
+        "scale": 12,
+        "values": "eu,na,asia",
+        "nullable": true,
+        "unique": false,
+        "backref": null,
+        "m2m": false,
+        "cascade": false,
+        "doc": "",
+        "is_scalar": false,
+        "is_m2m": false
+      },
+      {
+        "name": "battleground",
+        "type": "Battleground",
+        "size": 255,
+        "precision": 36,
+        "scale": 12,
+        "values": null,
+        "nullable": true,
+        "unique": false,
+        "backref": null,
+        "m2m": false,
+        "cascade": false,
+        "doc": "",
+        "is_scalar": true,
+        "is_m2m": false
+      },
+      {
+        "name": "battleground_method",
+        "type": "Enum",
+        "size": 255,
+        "precision": 36,
+        "scale": 12,
+        "values": "draft,choose,random",
+        "nullable": true,
+        "unique": false,
+        "backref": null,
+        "m2m": false,
+        "cascade": false,
+        "doc": "",
+        "is_scalar": false,
+        "is_m2m": false
+      }
+    ]
+  },
+  {
+    "name": "Team",
+    "attrs": [
+      {
+        "name": "name",
+        "type": "String",
+        "size": 255,
+        "precision": 36,
+        "scale": 12,
+        "values": null,
+        "nullable": true,
+        "unique": false,
+        "backref": null,
+        "m2m": false,
+        "cascade": false,
+        "doc": "",
+        "is_scalar": false,
+        "is_m2m": false
+      },
+      {
+        "name": "lobby",
+        "type": "Lobby",
+        "size": 255,
+        "precision": 36,
+        "scale": 12,
+        "values": null,
+        "nullable": true,
+        "unique": false,
+        "backref": "teams",
+        "m2m": false,
+        "cascade": false,
+        "doc": "",
+        "is_scalar": true,
+        "is_m2m": false
+      },
+      {
+        "name": "members",
+        "type": "User",
+        "size": 255,
+        "precision": 36,
+        "scale": 12,
+        "values": null,
+        "nullable": true,
+        "unique": false,
+        "backref": "teams",
+        "m2m": true,
+        "cascade": false,
+        "doc": "",
+        "is_scalar": true,
+        "is_m2m": true
+      }
+    ]
+  },
+  {
+    "name": "Battleground",
+    "attrs": [
+      {
+        "name": "name",
         "type": "String",
         "size": 255,
         "precision": 36,

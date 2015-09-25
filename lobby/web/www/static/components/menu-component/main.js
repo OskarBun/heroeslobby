@@ -68,7 +68,7 @@ define([
 									'"; expires=' + expires.toGMTString() + 
 									'; path=/';
 						}
-						this.appl.notify("You have signed in as " + response.result.email,{position:'.top-right',type:'success'});
+						this.appl.notify("You have signed in.",{position:'.top-right',type:'success'});
 					}
 				}.bind(this));
 			}

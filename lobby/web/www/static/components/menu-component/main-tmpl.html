@@ -39,10 +39,10 @@
 						<form data-bind="submit:$component.login.bind($component)">
 	                    <div class="col-sm-12">
 	                        <div class="col-sm-12">
-	                            Enter your email and password and click 'Sign In'
+	                            Enter your name and password and click 'Sign In'
 	                        </div>
 	                        <div class="col-sm-12">
-	                            <input type="text" placeholder="Email" onclick="return false;" 
+	                            <input type="text" placeholder="Name" onclick="return false;" 
 	                            	class="form-control input-sm" id="login-email"
 	                            	data-bind="textInput:login_email" />
 	                        </div>
@@ -87,7 +87,7 @@
 						</a></li>
 						<li role="presentation" class="divider"></li>
 						<li class="dropdown-header">Signed in as <span
-							data-bind="text:user().email"></span></li>
+							data-bind="text:user().name"></span></li>
 						<!-- /ko -->
 						<li data-bind="visible:status()!='Connected'">
 							<a href="#" 
