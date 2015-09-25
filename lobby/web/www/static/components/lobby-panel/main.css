@@ -1,9 +1,10 @@
 .lobby-panel {
-  width: 100%;
+  display: table-cell;
+  min-width: 100%;
   min-height: 67px;
   margin: 4px 0;
   padding: 0 6px;
-  background-color: #125E7F;
+  /*background-color: #125E7F;*/
   border-radius: 5px;
   border-width: 1px;
   border-color: black;
@@ -11,7 +12,7 @@
 }
 
 .lobby-panel i.fa-user {
-  background-color: #60767F;
+  /*background-color: #60767F;*/
 }
 
 .lobby-panel .info {
@@ -20,4 +21,8 @@
 
 .lobby-panel * {
   display: inline-block;
+}
+
+.text-active {
+  color: red;
 }

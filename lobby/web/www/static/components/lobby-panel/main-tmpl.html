@@ -1,7 +1,7 @@
 <div class="panel panel-default" data-bind="with:lobby">
   <div class="panel-heading">
     <h3 class="panel-title">
-      <img class="pull-right" style="width:20px;height:20px" 
+      <img class="pull-right" style="width:20px;height:20px"
       data-bind="attr: {src: $component.region_icon}" />
       <span data-bind="editable:battleground"></span>
     </h3>
@@ -10,17 +10,17 @@
     <tbody data-bind="foreach:teams">
       <tr data-bind="foreach:[0,1,2,3,4]">
         <td style="text-align: center">
-          <i class="fa fw fa-user" 
-          data-bind="css:{'text-muted':!$component.team_member($parent,$data)}"></i>
+          <i class="fa fw fa-user"
+          data-bind="css:{'text-muted':!$component.team_member($parent,$data), 'text-active':$component.team_member_is_user($parent, $data)}"></i>
         </td>
       </tr>
     </tbody>
   </table>
   <div class="panel-footer">
-    <button class="btn btn-primary" 
+    <button class="btn btn-primary"
     data-bind="disable:!$component.can_join(),
     click:$component.join.bind($component)">Join</button>
-    <button class="btn btn-primary" 
+    <button class="btn btn-primary"
     data-bind="click:$component.open.bind($component)">Details</button>
   </div>
 </div>

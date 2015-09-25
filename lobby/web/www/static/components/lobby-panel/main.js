@@ -39,12 +39,17 @@ define([
 			}
 		};
 
+    Panel.prototype.team_member_is_user = function(team, index) {
+      var place = this.team_member(team, index), user = this.appl.user()
+      return user && place && place.id() == user.id;
+    }
+
 		Panel.prototype.join = function(team) {
-			
+
 		};
 
 		Panel.prototype.open = function() {
-			
+
 		};
 
 		return {
