@@ -6,24 +6,24 @@ define([
 
 		function Panel(params){
 			this.appl = params.appl;
-			this.lobbies = ko.observableArray([
-				{
-					"map": "Garden of Terror",
-					"red_users": ko.observableArray(["Blah", "Blah", "Blah", "Blah", "Blah"]),
-					"blue_users": ko.observableArray(["Blah", "Blah", "Blah", "Blah", "Blah"]),
-					"region": "eu"
-				},
-				{
-					"map": "Tomb of the Spider Queen",
-					"red_users": ko.observableArray(["Blah", "Blah", "Blah", "Blah", "Blah"]),
-					"blue_users": ko.observableArray(["Blah", "Blah", "Blah", "Blah", "Blah"]),
-					"region": "na"
-				}
-			])
+			this.lobbies = appl.store.get_lobbies();
+			// [
+			// 	{
+			// 		"map": "Garden of Terror",
+			// 		"red_users": ko.observableArray(["Blah", "Blah", "Blah", "Blah", "Blah"]),
+			// 		"blue_users": ko.observableArray(["Blah", "Blah", "Blah", "Blah", "Blah"]),
+			// 		"region": "eu"
+			// 	},
+			// 	{
+			// 		"map": "Tomb of the Spider Queen",
+			// 		"red_users": ko.observableArray(["Blah", "Blah", "Blah", "Blah", "Blah"]),
+			// 		"blue_users": ko.observableArray(["Blah", "Blah", "Blah", "Blah", "Blah"]),
+			// 		"region": "na"
+			// 	}
+			// ]
 		}
 
 		Panel.prototype.init = function() {
-
 		};
 
 		Panel.prototype.dispose = function() {

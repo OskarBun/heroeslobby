@@ -6,10 +6,10 @@ define([
 
 		function Panel(params){
 			this.appl = params.appl;
-      this.map = params.map
-      this.red_users = params.red_users
-      this.blue_users = params.blue_users
-      this.region_icon = "/static/images/"+params.region+".svg"
+      this.map = params.lobby.battleground;
+      this.red_users = params.lobby.teams()[0].members;
+      this.blue_users = params.lobby.teams()[1].members;
+      this.region_icon = "/static/images/"+params.lobby.region()+".svg";
 		}
 
 		Panel.prototype.init = function() {

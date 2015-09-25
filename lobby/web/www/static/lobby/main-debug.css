@@ -35,3 +35,7 @@
 .notifications .alert{
   padding: 10px;
 }
+
+html,body{
+	background-color: #60767F;
+}

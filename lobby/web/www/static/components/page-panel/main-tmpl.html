@@ -1,8 +1,6 @@
-<!-- page-panel -->
-<div id="page-panel">
-	<!-- Content -->
+<div class="page-panel">
 	<div data-bind="foreach: lobbies">
-		<lobby-panel params="appl:appl, red_users:$data.red_users, blue_users:$data.blue_users, map:$data.map, region:$data.region"></lobby-panel>
+		<lobby-panel params="appl:appl, lobby:$data"></lobby-panel>
 	</div>
 </div>
 

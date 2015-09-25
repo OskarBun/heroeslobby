@@ -1,18 +1,20 @@
 <div class="lobby-panel">
   <h2 data-bind="text: map"></h2>
-  <ul data-bind="foreach: red_users" class="list-inline">
-    <li>
-      <i class="fa fa-user"></i>
-    </li>
-  </ul>
-  <h3 data-bind="text: red_users().length"></h3>
-  <i class="fa fa-times"></i>
-  <h3 data-bind="text: blue_users().length"></h3>
-  <ul data-bind="foreach: blue_users" class="list-inline">
-    <li>
-      <i class="fa fa-user"></i>
-    </li>
-  </ul>
-  <img src="/static/images/mumble.svg" width="20" height="20"/>
-  <img data-bind="attr: {src: region_icon}"  width="20" height="20" />
+  <div class="info">
+    <ul data-bind="foreach: red_users" class="list-inline">
+      <li>
+        <i class="fa fa-user"></i>
+      </li>
+    </ul>
+    <h3 data-bind="text: red_users().length"></h3>
+    <i class="fa fa-times"></i>
+    <h3 data-bind="text: blue_users().length"></h3>
+    <ul data-bind="foreach: blue_users" class="list-inline">
+      <li>
+        <i class="fa fa-user"></i>
+      </li>
+    </ul>
+    <!-- <img src="/static/images/mumble.svg" width="20" height="20"/> -->
+    <img data-bind="attr: {src: region_icon}"  width="20" height="20" />
+  </div>
 </div>

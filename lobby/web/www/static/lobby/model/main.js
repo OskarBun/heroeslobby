@@ -33,7 +33,7 @@ define([
 			}
 			else if(msg.signal == "lobby updated"){
 				var lobby = this.lobbies().find(function(item){
-					return ko.unwrap(item.id);
+					return ko.unwrap(item.id) == msg.message.id;
 				});
 				if(lobby){
 					lobby.update(msg.message);
@@ -41,7 +41,7 @@ define([
 			}
 		};
 
-		
+
 		return Store;
 	}
 );
