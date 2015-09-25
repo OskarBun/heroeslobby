@@ -7,7 +7,6 @@ import unittest
 from blueshed.utils.utils import dumps
 from lobby.tests._test_control_ import TestControl
 from lobby import model
-from lobby.views.lobby_view import json_lobby
 
 
 
@@ -16,7 +15,7 @@ class Test(unittest.TestCase):
 
     def setUp(self):
 #         self.control = TestControl(db_url="sqlite:///",drop_all=True)
-        self.control = TestControl(db_url="sqlite:///../web/lobby.db",drop_all=True)
+        self.control = TestControl(db_url="sqlite:///lobby.db",drop_all=True)
 
 
     def tearDown(self):
