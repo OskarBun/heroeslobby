@@ -20,3 +20,17 @@
 	top: -6px;
 	right: 10px;
 }
+
+.validationMessage { 
+	color: red; 
+}
+
+.notifications .close{
+	margin-left: 1em;
+}
+.notifications {
+  z-index: 1040;
+}
+.notifications .alert{
+  padding: 10px;
+}

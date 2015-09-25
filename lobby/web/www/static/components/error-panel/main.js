@@ -6,8 +6,7 @@ define([
 
 		function Panel(params){
 			this.appl = params.appl;
-			this.status = this.appl.connection.status;
-			this.id = params.id;
+			this.error = params.error;
 		}
 
 		Panel.prototype.init = function() {

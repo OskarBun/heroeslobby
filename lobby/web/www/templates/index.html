@@ -18,8 +18,20 @@
 <body>
 	<menu-component params="{appl:$root}"></menu-component>
 	<div class="container-fluid" style="margin-top:60px;">
-		<h1>Welcome</h1>
-		<div data-bind="text:connection.status"></div>
+		<error-panel params="error:error"></error-panel>
+		<div class="row" data-bind="if:component">
+			<div class="col-xs-12" 
+				data-bind="component:component"></div>
+		</div>
+		<div data-bind="visible:false">
+			<div style="width:240px;margin-left:auto;margin-right:auto;margin-top:240px;opacity:0.9">
+				<img src="{{ static_url('images/ico/startup.png') }}" width="240"/>
+				<div class="spinner">
+					<div class="dot1"></div>
+					<div class="dot2"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<div id="modal-dialog" class="modal fade"></div>
