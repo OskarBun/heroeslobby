@@ -24,6 +24,7 @@ from blueshed.utils.pika_broadcaster import PikaBroadcaster
 define("port", 8080, int, help="port to listen on")
 define("debug", default='yes', help="debug yes or no - autoreload")
 define("db_url", default='sqlite:///lobby.db', help="database url")
+define("db_pool_recycle", 60, int, help="how many seconds to recycle db connection")
 define("multi", default='local', help="are we talking to queues")
 
 patch_tornado()
@@ -50,7 +51,10 @@ def main():
         if db_url.endswith("?reconnect=true"):
             db_url = db_url[:-len("?reconnect=true")]
                     
-    control = Control(db_url=db_url,queue=queue,drop_all=False)
+    control = Control(db_url=db_url,
+                      pool_recycle=options.db_pool_recycle,
+                      queue=queue,
+                      drop_all=False)
     
     if queue:
         queue.set_clients(control._clients)
