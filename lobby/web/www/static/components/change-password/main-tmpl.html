@@ -5,14 +5,14 @@
 	    	<h4 data-bind="text:title"></h4>
 	  	</div>
 	  	<div class="modal-body">
-			<blue-error params="error:model.error"></blue-error>
+			<error-panel params="error:error"></error-panel>
 			<form role="form" data-bind="submit:save">
 				<blue-string-field 
-					params="name:'Old',value:model.old,placeholder:'Enter old password'"></blue-string-field>
+					params="name:'Old',value:old,placeholder:'Enter old password'"></blue-string-field>
 				<blue-string-field 
-					params="name:'New',value:model.new_1,placeholder:'Enter new password'"></blue-string-field>
+					params="name:'New',value:new_1,placeholder:'Enter new password'"></blue-string-field>
 				<blue-string-field 
-					params="name:'Confirm',value:model.new_2,placeholder:'Confirm new password'"></blue-string-field>
+					params="name:'Confirm',value:new_2,placeholder:'Confirm new password'"></blue-string-field>
 				<span class="help-block">Passwords must be at least 4 characters in length.</span>
 			</form>
 	  	</div>

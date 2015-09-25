@@ -6,6 +6,7 @@ define([
 
 		function Panel(params){
 			this.appl = params.appl;
+			this.title = "Change Password";
 			this.old = ko.observable();
 			this.new_1 = ko.observable();
 			this.new_2 = ko.observable();

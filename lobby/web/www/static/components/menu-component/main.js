@@ -32,11 +32,11 @@ define([
 		};
 		
 		Panel.prototype.edit_user = function(){
-			this.appl.set_hash("contact/" + this.appl.user().id);
+			
 		};
 		
 		Panel.prototype.change_password = function(){
-			
+			this.appl.open_dialog("change-password",{appl:this.appl});
 		};
 		
 		Panel.prototype.connect = function(){

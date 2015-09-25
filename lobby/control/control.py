@@ -65,6 +65,16 @@ class Control(BaseControl):
             return user._serialize
         
         
+    def change_password(self, accl, old_password, new_password):
+        with self.session as session:
+            accl_user = session.query(model.User).get(accl)
+            if old_password != accl_user._password:
+                raise Exception("old password does not match")
+            accl_user._password = new_password
+            session.commit()
+            return True
+        
+        
     def create_lobby(self, accl, team1=None, team2=None, **kwargs):
         with self.session as session:
             lobby = model.Lobby(owner_id=accl)
