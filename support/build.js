@@ -5,6 +5,7 @@
         "jquery" :        		"bower_components/jquery/dist/jquery",
         "knockout":		  		"bower_components/knockout/dist/knockout.debug",  
         "knockout-mapping":     "bower_components/knockout-mapping/knockout.mapping",
+        "knockout-validation":  "bower_components/knockout-validation/dist/knockout.validation",
         
         "bootstrap":        	"bower_components/bootstrap/dist/js/bootstrap",
         "bootstrap-notify":  	"bower_components/bootstrap-notify/js/bootstrap-notify",
