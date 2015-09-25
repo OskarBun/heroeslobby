@@ -1,6 +1,7 @@
 @import url("../bower_components/font-awesome/css/font-awesome.min.css");
 @import url("../bower_components/bootstrap/dist/css/bootstrap.css");
 @import url("../bower_components/bootstrap-notify/css/bootstrap-notify.css");
+@import url("../components/lobby-panel/main.css");
 
 .login-menu{
 	width: 300px;
@@ -21,8 +22,8 @@
 	right: 10px;
 }
 
-.validationMessage { 
-	color: red; 
+.validationMessage {
+	color: red;
 }
 
 .notifications .close{

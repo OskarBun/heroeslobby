@@ -1,9 +1,9 @@
 <!-- page-panel -->
 <div id="page-panel">
 	<!-- Content -->
-	<h1>Welcome</h1>
-	<div data-bind="text:id"></div>
-	<div data-bind="text:status"></div>
+	<div data-bind="foreach: lobbies">
+		<lobby-panel params="appl:appl, red_users:$data.red_users, blue_users:$data.blue_users, map:$data.map, region:$data.region"></lobby-panel>
+	</div>
 </div>
 
 <div data-bind="template:{ afterRender: $component.init.bind($component) }"></div>
