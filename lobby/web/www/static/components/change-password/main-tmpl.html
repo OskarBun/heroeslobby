@@ -1,0 +1,27 @@
+<div class="modal-dialog modal-sm">
+  	<div class="modal-content">
+		<div class="modal-header">
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    	<h4 data-bind="text:title"></h4>
+	  	</div>
+	  	<div class="modal-body">
+			<blue-error params="error:model.error"></blue-error>
+			<form role="form" data-bind="submit:save">
+				<blue-string-field 
+					params="name:'Old',value:model.old,placeholder:'Enter old password'"></blue-string-field>
+				<blue-string-field 
+					params="name:'New',value:model.new_1,placeholder:'Enter new password'"></blue-string-field>
+				<blue-string-field 
+					params="name:'Confirm',value:model.new_2,placeholder:'Confirm new password'"></blue-string-field>
+				<span class="help-block">Passwords must be at least 4 characters in length.</span>
+			</form>
+	  	</div>
+	  	<div class="modal-footer">
+	    	<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+	    	<button class="btn btn-primary" 
+	    	   data-bind="click:save,enable:can_save">
+	    	   Change
+	    	</button>
+	  	</div>
+	</div>
+</div>
