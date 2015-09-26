@@ -10,6 +10,8 @@ define([
 			this.status = this.appl.connection.status;
 			this.loading = this.appl.loading;
 			this.logo = this.appl.logo;
+
+			this.menu_component = this.appl.menu_component;
 			
 			this.search_term = this.appl.search_term;
 			this.search_focus = this.appl.search_focus;

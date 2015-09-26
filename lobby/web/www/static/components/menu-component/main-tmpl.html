@@ -23,7 +23,7 @@
 
 			<ul class="nav navbar-nav">
 				<li data-bind="css:{active:active_component()=='page-panel'}">
-					<a href="#/page">Home</a>
+					<a href="#/page">Lobbies</a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -120,6 +120,10 @@
 					</div>
 				</div>
 			</form>
+			<!-- /ko -->
+			<!-- ko if:menu_component -->
+				<!-- ko component:menu_component -->
+				<!-- /ko -->
 			<!-- /ko -->
 		</div>
 		<!-- /.navbar-collapse -->

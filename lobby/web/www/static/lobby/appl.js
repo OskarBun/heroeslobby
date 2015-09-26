@@ -32,6 +32,7 @@ define(
 			this.search_term = ko.observable();
 			this.search_focus = ko.observable(false);
 			this.search_visible = ko.observable(false);
+			this.menu_component = ko.observable();
 			
             this.connection.broadcast.subscribe(function(msg){
 				if(msg.signal == "user"){

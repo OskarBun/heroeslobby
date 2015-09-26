@@ -1,7 +1,13 @@
+<!-- ko ifnot:current_lobby -->
 <div class="row page-panel" data-bind="foreach: lobbies">
 	<div class="col-sm-4 col-md-3 col-lg-2">
-		<lobby-panel params="appl:appl, lobby:$data"></lobby-panel>
+		<lobby-panel params="appl: appl, 
+							 lobby: $data, 
+							 open: $component.open_lobby.bind($component)"></lobby-panel>
 	</div>
 </div>
-<button class="btn btn-default" data-bind="click:$component.add_lobby.bind($component)">Add</button>
+<!-- /ko -->
+<!-- ko if:current_lobby -->
+	<lobby-pane params="appl:appl,lobby:current_lobby"></lobby-pane>
+<!-- /ko -->
 <div data-bind="template:{ afterRender: $component.init.bind($component) }"></div>

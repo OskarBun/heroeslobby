@@ -7,6 +7,7 @@ define([
 		function Panel(params){
 			this.appl = params.appl;
 			this.lobby = params.lobby;
+			this.open = params.open;
 			this.region_icon = "/static/images/"+params.lobby.region()+".svg";
 
 			this.can_join = ko.pureComputed(function(){
@@ -45,10 +46,6 @@ define([
     }
 
 		Panel.prototype.join = function(team) {
-
-		};
-
-		Panel.prototype.open = function() {
 
 		};
 

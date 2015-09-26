@@ -34,13 +34,44 @@ define([
 						this.appl.error(response.error);
 						return;
 					}
-					result(response.result.map(function(item){
-						return new Lobby(item);
-					}));
-				});
+					response.result.map(function(item){
+						this._add_lobby(item);
+					},this);
+				},this);
 			return this.lobbies;
 		};
+		
 
+		Store.prototype.get_lobby = function(id, callback){
+			var lobby = this.lobbies().find(function(item){
+				return ko.unwrap(item.id)==id;
+			});
+			if(!lobby){
+				this.appl.send("get_lobby",{lobby_id:id},
+					function(response){
+						if(response.error){
+							this.appl.error(response.error);
+							return;
+						}
+						lobby = this._add_lobby(response.result);
+						callback(lobby);
+					},this);
+			}
+			else{
+				callback(lobby);
+			}
+		};
+
+		Store.prototype._add_lobby = function(data) {
+			var lobby = this.lobbies().find(function(item){
+				return ko.unwrap(item.id)==data.id;
+			});
+			if(!lobby){
+				lobby = new Lobby(data);
+				this.lobbies.push(lobby);
+			}
+			return lobby;
+		};
 
 
 		Store.prototype.get_battlegrounds = function() {
