@@ -6,7 +6,10 @@ define([
 
 		function Panel(params){
 			this.appl = params.appl;
-			this.user = params.user;
+			this.user = ko.observable();
+			if(params.id == ko.unwrap(this.appl.user().id)){
+				this.user(this.appl.user());
+			}
 		}
 
 		Panel.prototype.init = function() {

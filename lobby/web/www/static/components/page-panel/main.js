@@ -11,9 +11,14 @@ define([
 
 		function Panel(params){
 			this.appl = params.appl;
+			this.current_lobby = ko.observable();
+			if(params.id){
+				this.appl.store.get_lobby(
+					params.id,
+					this.open_lobby.bind(this));
+			} 
 			this.lobbies = appl.store.get_lobbies();
 
-			this.current_lobby = ko.observable();
 			this.current_lobby.subscribe(function(value){
 				if(value){
 					this.appl.set_hash_silently("page/"+ko.unwrap(value.id));
@@ -24,11 +29,6 @@ define([
 			this.can_add = ko.pureComputed(function(){
 				return this.appl.user();
 			},this);
-			if(params.id){
-				this.appl.store.get_lobby(
-					params.id,
-					this.open_lobby.bind(this));
-			}
 		}
 
 		Panel.prototype.init = function() {

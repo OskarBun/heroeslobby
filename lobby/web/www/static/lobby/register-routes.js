@@ -12,6 +12,10 @@ define(["crossroads",
 		crossroads.addRoute('/page/:id:',function(id){
 			this.set_component("page-panel",{id:id});
 		}.bind(this));
+
+		crossroads.addRoute('/profile/{id}',function(id){
+			this.set_component("profile-panel",{id:id});
+		}.bind(this));
 	}
 	
 	

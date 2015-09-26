@@ -34,7 +34,7 @@ define([
 		};
 		
 		Panel.prototype.edit_user = function(){
-			
+			this.appl.set_hash("profile/"+ko.unwrap(this.user().id));
 		};
 		
 		Panel.prototype.change_password = function(){
